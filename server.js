@@ -2,6 +2,7 @@ require('dotenv').config();
 /* ==== External Modules ==== */
 const express = require('express');
 const app = express();
+const path = require('path');
 const PORT = process.env.PORT || 3000;
 /* ==== Internal Modules ==== */
 //Articles Router
@@ -12,8 +13,11 @@ const articleRouter = require('./routes/articles');
 
 /* ====  Configuration  ==== */
 app.set("view engine", "ejs");
+// COnfiguring Public Folder
+const public = path.join(__dirname, './public')
 
 /* ====  Middleware  ==== */
+app.use(express.static(public))
 app.use("/articles", articleRouter)
 
 /* ====  Routes & Controllers  ==== */
@@ -28,7 +32,7 @@ app.get("/", (req, res) => {
    { title: 'Test Article Title 2',
     dateCreated: new Date(),
     description: 'Test description 2222'},]
-    res.render("index", {articles: articles})
+    res.render("articles/index", {articles: articles})
 })
 //404 Route
 
