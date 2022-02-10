@@ -1,7 +1,8 @@
+require('dotenv').config();
 /* ==== External Modules ==== */
 const express = require('express');
 const app = express();
-
+const PORT = process.env.PORT || 3000;
 /* ==== Internal Modules ==== */
 //Articles Router
 const articleRouter = require('./routes/articles');
@@ -19,10 +20,20 @@ app.use("/articles", articleRouter)
 
 //Home Route
 app.get("/", (req, res) => {
+    const articles = [{
+        title: 'Test Article Title',
+        dateCreated: new Date(),
+        description: 'Test description',
+    },
+   { title: 'Test Article Title 2',
+    dateCreated: new Date(),
+    description: 'Test description 2222'},]
     res.render("index", {articles: articles})
 })
 //404 Route
 
 
 /* ====  Server Listener  ==== */
-app.listen(3000)
+app.listen(PORT, () => {
+    console.log(`NEM Stack Blog Site is Live on Port:${PORT}!`)
+})

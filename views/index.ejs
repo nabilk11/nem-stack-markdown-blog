@@ -4,14 +4,42 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>NEMories Blog</title>
+        <title>nk nem stack blog</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     </head>
     <body>
+        <nav class="navbar">
+            <ul class="navbar-links">
+                <li class="brand"><a href="/" >HOME</a></li>
+                <li class="navbar-link"><a href="/articles/new" >New Article</a></li>
+            </ul>
+        </nav>
         <script src="" async defer></script>
+        
+        <div class="container">
+            <h1>The Nem Stack Blog</h1>
+            <h2 class="mb-4 header">Blog Articles</h2>
+            <a href="/articles/new" class="btn btn-success">Add New Article</a>
 
-        <h1>Blog Site</h1>
+            <% articles.forEach(article => { %>
+                <div class="card mt-4">
+                    <div class="card-img-top"><img src="images/sexy_bikini_anime_girl__original__render_026_by_yamyumchann_dcu03e8-pre.png" alt=""></div>
+                    <div class="card-body border">
+                        <h4 class="card-title"><%= article.title %></h4>
+                        <div class="card-subtitle text-muted mb-2">
+                            <%= article.dateCreated.toLocaleDateString() %>
+                        </div>
+                        <div class="card-text mb-2">
+                            <%= article.description %>  
+                        </div>
+                    </div>
+                    
+                </div>
+
+           <% }) %>
+        </div>
+
     </body>
 </html>
