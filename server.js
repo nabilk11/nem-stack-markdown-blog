@@ -19,7 +19,7 @@ app.use("/articles", articleRouter)
 
 //Home Route
 app.get("/", (req, res) => {
-    res.render("index")
+    res.render("index", {articles: articles})
 })
 //404 Route
 
