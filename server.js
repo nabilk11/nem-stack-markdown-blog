@@ -15,16 +15,19 @@ mongoose.connect(DB_URL, {
 }).then(() => {
     console.log(`Nem Stack Blog is Now Connected to MongoDB at ${db.host}:${db.port}!`)
 }).catch((err) => console.log(`Connection Failed! Error: ${err}.`))
-//Articles Router
+
+/* ==== Router Imports ==== */
 const articleRouter = require('./routes/articles');
+
 /* ====  Configuration  ==== */
 app.set("view engine", "ejs");
-// COnfiguring Public Folder
+// Configuring Public Folder
 const public = path.join(__dirname, './public')
-
-
+// URL Encoder Must be Before Routers
+app.use(express.urlencoded({extended: false}))
 app.use(express.static(public))
-app.use("/articles", articleRouter)
+
+
 
 /* ====  Routes & Controllers  ==== */
 //Home Route
@@ -41,6 +44,8 @@ app.get("/", (req, res) => {
 })
 //404 Route
 
+/* ====  Routers  ==== */
+app.use("/articles", articleRouter)
 
 /* ====  Server Listener  ==== */
 app.listen(PORT, () => {
