@@ -1,27 +1,32 @@
 require('dotenv').config();
 /* ==== External Modules ==== */
 const express = require('express');
+const mongoose = require('mongoose');
 const app = express();
 const path = require('path');
 const PORT = process.env.PORT || 3000;
-/* ==== Internal Modules ==== */
+
+/* ==== Database Connection ==== */
+const db = mongoose.connection;
+const DB_URL = process.env.DB_URL;
+mongoose.connect(DB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}).then(() => {
+    console.log(`Nem Stack Blog is Now Connected to MongoDB at ${db.host}:${db.port}!`)
+}).catch((err) => console.log(`Connection Failed! Error: ${err}.`))
 //Articles Router
 const articleRouter = require('./routes/articles');
-
-/* ==== Instanced Modules  ==== */
-
-
 /* ====  Configuration  ==== */
 app.set("view engine", "ejs");
 // COnfiguring Public Folder
 const public = path.join(__dirname, './public')
 
-/* ====  Middleware  ==== */
+
 app.use(express.static(public))
 app.use("/articles", articleRouter)
 
 /* ====  Routes & Controllers  ==== */
-
 //Home Route
 app.get("/", (req, res) => {
     const articles = [{
