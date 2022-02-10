@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
     })
     try     { 
        article = await article.save()
-       res.redirect(`/article/${article.id}`)
+       res.redirect(`/articles/${article.id}`)
     } catch (err) {
         console.log(`Error in Create: ${err}.`)
         res.render('articles/new', {article: article})
