@@ -19,9 +19,11 @@
   },
   "homepage": "https://github.com/nabilk11/nem-stack-markdown-blog#readme",
   "dependencies": {
+    "dompurify": "^2.3.5",
     "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.2",
+    "jsdom": "^19.0.0",
     "marked": "^4.0.12",
     "method-override": "^3.0.0",
     "mongoose": "^6.2.1",
