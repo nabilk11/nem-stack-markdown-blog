@@ -10,16 +10,11 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     </head>
     <body>
-        <nav class="nav">
-            <ul class="navbar-links">
-                <li class="brand"><a href="/" >HOME</a></li>
-                <li class="navbar-link"><a href="/articles/new" >New Article</a></li>
-            </ul>
-        </nav>
-        <script src="" async defer></script>
-        
+        <%- include('../partials/_navbar') %>
         <div class="container">
-            <h1 class="mb-5 header">The Nem Stack Blog <br><small class="text-muted">A Markdown Blog</small> </h1>
+            <div class="page-header">
+                <h1 class="mb-5 header">The Nem Stack Blog <br><small class="text-muted">A Markdown Blog</small> </h1>
+            </div>
             <h3 class="mb-4 header">Create New Article</h3>
             
             <form action="/articles" method="POST">
