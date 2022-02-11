@@ -6,11 +6,11 @@ const path = require('path');
 const methodOverride = require('method-override');
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 /* ==== Database Connection ==== */
 const db = mongoose.connection;
-const DB_URL = process.env.DB_URL;
+const DB_URL = "mongodb+srv://nk11:pizza123@nk-sei.utmze.mongodb.net/NEMStackBlog?retryWrites=true&w=majority";
 mongoose.connect(DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
