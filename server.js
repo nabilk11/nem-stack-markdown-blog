@@ -16,8 +16,9 @@ mongoose.connect(DB_URL, {
     console.log(`Nem Stack Blog is Now Connected to MongoDB at ${db.host}:${db.port}!`)
 }).catch((err) => console.log(`Connection Failed! Error: ${err}.`))
 
-/* ==== Router Imports ==== */
+/* ==== Internals ==== */
 const articleRouter = require('./routes/articles');
+const Article = require('./models/article');
 
 /* ====  Configuration  ==== */
 app.set("view engine", "ejs");
@@ -31,16 +32,11 @@ app.use(express.static(public))
 
 /* ====  Routes & Controllers  ==== */
 //Home Route
-app.get("/", (req, res) => {
-    const articles = [{
-        title: 'Test Article Title',
-        dateCreated: new Date(),
-        description: 'Test description',
-    },
-   { title: 'Test Article Title 2',
-    dateCreated: new Date(),
-    description: 'Test description 2222'},]
-    res.render("articles/index", {articles: articles})
+app.get("/", async (req, res) => {
+    const articles = await Article.find().sort({
+        dateCreated: 'desc'
+    })
+    res.render('articles/index', {articles: articles})
 })
 //404 Route
 
