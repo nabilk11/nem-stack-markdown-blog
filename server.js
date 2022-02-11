@@ -2,8 +2,10 @@ require('dotenv').config();
 /* ==== External Modules ==== */
 const express = require('express');
 const mongoose = require('mongoose');
-const app = express();
 const path = require('path');
+const methodOverride = require('method-override');
+const app = express();
+
 const PORT = process.env.PORT || 3000;
 
 /* ==== Database Connection ==== */
@@ -24,9 +26,12 @@ const Article = require('./models/article');
 app.set("view engine", "ejs");
 // Configuring Public Folder
 const public = path.join(__dirname, './public')
+app.use(express.static(public))
 // URL Encoder Must be Before Routers
 app.use(express.urlencoded({extended: false}))
-app.use(express.static(public))
+// Method Override
+app.use(methodOverride('_method'))
+
 
 
 

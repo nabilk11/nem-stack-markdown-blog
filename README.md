@@ -15,5 +15,5 @@ I used a series of different modules for this blog application, including the fo
 - Marked - Allows us to render the blogs in markdown to html.
 - Multer - Will use in the later version of the application in order to give individuals the ability to upload images alongside their blogs.
 - Slugify - To allow us to clean up our URLs 
-
+- Method-Override - 
 
