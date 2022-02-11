@@ -1,0 +1,19 @@
+.container {
+    
+    
+}
+
+.page-header {
+background-color: rgb(248, 172, 142);
+padding-left: 5rem;
+padding-bottom: 1px;
+}
+
+.card {
+    box-shadow: 1px 1px 1px dimgray;
+}
+
+.card:hover {
+    transition: all 0.3s ease;
+    transform: scale(1.05);
+}
