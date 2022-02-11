@@ -17,5 +17,11 @@ I used a series of different modules for this blog application, including the fo
 - Marked - marked.parse allows us to render the blogs markdown text to html.
 - dompurify - used with jsdom to create a sanitized html version of our markdown text.
 - jsdom - in order to allow html rendering within Node
-- Multer - FUTURE: Will use in the later version of the application in order to give individuals the ability to upload images alongside their blogs.
+
+## FUTURE
+I would like to add additional functionality, with the help of other modules.
+- Password encryption using brypt or another library to hash passwords.
+- Google OAuth Login Authentication - Allow users to login with their Google Accounts.
+- Local Login Authentication Using Passport
+- Image Uploading Using Multer - Will use in the later version of the application in order to give individuals the ability to upload images alongside their blogs.
 

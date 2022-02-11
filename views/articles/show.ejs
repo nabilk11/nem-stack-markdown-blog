@@ -1,20 +1,5 @@
-<!DOCTYPE html>
-
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>nk nem stack blog</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    </head>
-    <body>
-        <%- include('../partials/_navbar') %>    
-        <div class="container">
-            <div class="page-header">
-                <h1 class="mb-5 header">The Nem Stack Blog <br><small class="text-muted">A Markdown Blog</small> </h1>
-            </div>
+<%- include('../partials/_header') %>   
+       
             <h2 class="mb-2 header"><%= article.title %></h2>
             <div class="text-muted mb-4"><%= article.dateCreated.toLocaleDateString() %></div>
             <a href="/" class="btn btn-secondary">All Articles</a>
