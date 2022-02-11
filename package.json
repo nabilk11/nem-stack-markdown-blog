@@ -4,7 +4,7 @@
   "description": "This is a full markdown blog application, using the NEM stack (Node.js, Express, &amp; MongoDB). The frontend UI is being rendered with ejs.",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js",
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
