@@ -31,7 +31,7 @@ app.use(express.static(public))
 
 
 /* ====  Routes & Controllers  ==== */
-//Home Route
+//INDEX/HOME - GET Route
 app.get("/", async (req, res) => {
     const articles = await Article.find().sort({
         dateCreated: 'desc'
